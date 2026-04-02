@@ -160,15 +160,12 @@ class Privacyshroud < Formula
       JSON
     end
 
-    # --- Step 7: Register skill with OpenClaw ---
-    ohai "Registering PrivacyShroud skill with OpenClaw..."
-    unless system("openclaw skills register #{SKILL_DIR} > /dev/null 2>&1")
-      opoo <<~EOS
-        OpenClaw skill registration failed.
-        Register manually after install:
-          openclaw skills register #{SKILL_DIR}
-      EOS
-    end
+    # --- Step 7: Verify skill is visible to OpenClaw ---
+    # No registration needed — OpenClaw automatically loads skills from
+    # ~/.openclaw/skills/ on the next session. Installing the skill directory
+    # there is sufficient. ClawHub registration is optional (for public listing).
+    ohai "Skill installed at #{SKILL_DIR}" \
+         " — OpenClaw will load it on next session."
   end
 
   def post_install
@@ -192,9 +189,9 @@ class Privacyshroud < Formula
       Feedback:     support@privacyshroud.ai
       ─────────────────────────────────────────────────
 
-      NOTE: OpenClaw must be installed and configured before
-      PrivacyShroud will function. If you haven't done this yet:
-        https://privacyshroud.ai/install
+      NOTE: OpenClaw must be installed and configured before PrivacyShroud
+      will function. Start a new OC session after install to load the skill.
+      If you haven't set up OpenClaw yet: https://privacyshroud.ai/install
 
       NOTE: The Control Tower dashboard requires your browser to
       accept the self-signed localhost certificate. On first open,
