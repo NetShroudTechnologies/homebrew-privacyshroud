@@ -40,7 +40,7 @@ class Privacyshroud < Formula
 
   # CapSolver open-source affiliate app ID.
   # Replaced with subscription app ID on activation (post-alpha).
-  CAPSOLVER_APP_ID = "PLACEHOLDER_CAPSOLVER_APP_ID"
+  CAPSOLVER_APP_ID = "F6EE6B7B-7080-4CFA-B801-1DB4A58027F0"
 
   def install
     # --- Step 1: Verify OpenClaw is installed ---
